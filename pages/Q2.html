@@ -64,10 +64,9 @@
         transition: all 0.3s ease-in-out;
       }
 
-      button:hover {
+      /* button:hover {
         background-color: #ff4d4d;
-        color: white;
-      }
+      } */
     </style>
   </head>
   <body>
@@ -136,6 +135,26 @@
           stopBtn.style.backgroundColor = "#ff4d4d";
           startBtn.style.backgroundColor = "white";
         }
+      };
+
+      startBtn.onmouseover = function () {
+        startBtn.style.backgroundColor = "#ff4d4d";
+        startBtn.style.color = "white";
+      };
+
+      startBtn.onmouseout = function () {
+        startBtn.style.backgroundColor = "white";
+        startBtn.style.color = "black";
+      };
+
+      stopBtn.onmouseover = function () {
+        stopBtn.style.backgroundColor = "#ff4d4d";
+        stopBtn.style.color = "white";
+      };
+
+      stopBtn.onmouseout = function () {
+        stopBtn.style.backgroundColor = "white";
+        stopBtn.style.color = "black";
       };
     </script>
   </body>
