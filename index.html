@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="icon" href="/assets/images/logo.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <style>
+      /* import custom font */
+      @font-face {
+        font-family: "SkateSemiBold";
+        src: url(/assets/fonts/skate-5.ttf);
+      }
+
+      * {
+        box-sizing: border-box;
+        --primary-color: #ffd273;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-image: url("/assets/images/bg.jpg");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+      }
+
+      /* -------------------------- navigation bar -------------------------- */
+      .navBar {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border: 3px solid #ccc;
+        width: 150px;
+        border-radius: 30px;
+        position: relative;
+        top: 20px;
+        margin: 0 auto;
+        z-index: 1;
+
+        /* glassmorphism effect */
+        background: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(5px);
+      }
+
+      .logo {
+        font-family: Arial, sans-serif;
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: #ccc;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .logo:hover {
+        color: var(--primary-color);
+        text-decoration: none;
+      }
+
+      .logo::after {
+        content: ".";
+        color: var(--primary-color);
+        font-size: 2.1rem;
+        font-weight: bold;
+      }
+
+      /* __________________________ dropdown menu __________________________ */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-text {
+        cursor: pointer;
+        font-size: 1rem;
+        color: #ccc;
+        transition: color 0.3s ease-in-out, font-weight 0.3s ease-in-out;
+      }
+
+      .dropdown-text:hover {
+        color: var(--primary-color);
+        font-weight: bold;
+      }
+
+      .dropdown-content {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        background-color: #ffffff80;
+        width: max-content;
+        border-radius: 10px;
+        padding: 5px;
+        margin: 0 -20px;
+
+        /* glassmorphism effect */
+        background: rgba(0, 0, 0, 0.8);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(5px);
+
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+      }
+
+      .dropdown-content a {
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-size: 0.9rem;
+        color: #ccc;
+        transition: color 0.3s ease-in-out, font-weight 0.3s ease-in-out;
+      }
+
+      .dropdown-content a:hover {
+        color: var(--primary-color);
+        font-weight: bold;
+      }
+
+      /* Show the dropdown on hover */
+      .dropdown:hover .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* ------------------------ main content ----------------------- */
+      section {
+        padding: 6vh 8vw;
+      }
+
+      .main-title {
+        font-size: 2rem;
+        color: #ccc;
+        padding: 0 50px;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        padding: 40px;
+        margin: 0 auto;
+        max-width: 1200px;
+        font-size: 1.1rem;
+        border-radius: 20px;
+        min-width: 480px;
+
+        /* for glassmorphism effect */
+        background: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(5px);
+      }
+
+      .image {
+        width: 250px;
+        border: 4px solid #808080;
+        border-radius: 200px;
+      }
+
+      .about-me {
+        font-size: 1.1rem;
+        color: #ccc;
+        text-indent: 30px;
+      }
+
+      .about-me::first-letter {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+      }
+
+      .social-icons {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin: 20px 50px;
+        border: 2px solid #aaa;
+        border-radius: 40px;
+        padding: 15px;
+        width: fit-content;
+      }
+
+      .social-icons i {
+        color: #ccc;
+        transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+      }
+
+      .social-icons i:hover {
+        transform: scale(1.1);
+        color: var(--primary-color);
+      }
+
+      /* ----------------------- footer ----------------------- */
+      footer {
+        color: #000;
+        font-weight: 700;
+        font-size: 0.9rem;
+        width: fit-content;
+        padding: 0 10px;
+        margin: 17px auto 10px;
+        border-top: 2px solid #000;
+        border-bottom: 2px solid #000;
+      }
+
+      /* -------------------------- Responsive styles -------------------------- */
+      @media screen and (max-width: 700px) {
+        section {
+          padding: 4vh 4vw;
+        }
+
+        .main-title {
+          font-size: 1.4rem;
+          padding: 0 15px;
+          text-align: center;
+        }
+
+        .container {
+          flex-direction: column;
+          text-align: center;
+          min-width: auto;
+          margin: 0 15px;
+          padding: 20px;
+          gap: 25px;
+        }
+
+        .image {
+          width: 40vw;
+        }
+
+        .about-me {
+          font-size: 0.95rem;
+          text-indent: 0;
+        }
+
+        .about-me::first-letter {
+          font-size: 2rem;
+        }
+
+        .social-icons {
+          margin: 15px auto;
+          padding: 12px;
+          gap: 15px;
+        }
+
+        .social-icons i {
+          font-size: 1.8rem;
+        }
+
+        footer {
+          font-size: 0.85rem;
+          margin: 12px auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navBar">
+        <a href="#" class="logo"> LK </a>
+
+        <div class="dropdown">
+          <p class="dropdown-text">Cases</p>
+          <div class="dropdown-content">
+            <a href="/pages/Q1_part_01.html" target="_blank"> Q1 part 01 </a>
+
+            <a href="/pages/Q1_part_02.html" target="_blank"> Q1 part 02 </a>
+
+            <a href="/pages/Q2.html" target="_blank"> Question 2 </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <div>
+          <h1 class="main-title">Assignment &nbsp; 08</h1>
+        </div>
+
+        <div class="container">
+          <img
+            src="/assets/images/aboutMe.jpg"
+            alt="image of me"
+            class="image"
+          />
+
+          <div>
+            <p class="about-me">
+              Hey, I'm Lahiru Kodikara. I'm a student at IJSE, This is my
+              Assignment 08. This assignment mainly focuses on JavaScript timing
+              function. I've learned a lot about JavaScript timing function.
+              Excited to continue learning and improving my web development
+              skills!
+
+              <br /><br /><br />
+
+              Find me on:
+            </p>
+
+            <div class="social-icons">
+              <a
+                href="https://github.com/LahiruChanak/IT-Assignment_08.git"
+                target="_blank"
+              >
+                <i class="fa-brands fa-github fa-2xl" title="GitHub"></i>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/lahiru-kodikara-3463b626a"
+                target="_blank"
+              >
+                <i class="fa-brands fa-linkedin fa-2xl" title="LinkedIn"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; Copyright 2024 Lahiru Kodikara. All Rights Reserved</p>
+    </footer>
+  </body>
+</html>
