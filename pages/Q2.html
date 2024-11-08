@@ -32,12 +32,13 @@
         align-items: center;
         justify-content: space-around;
         padding: 0;
-        width: 80%;
+        width: 100%;
+        gap: 1.5vw;
         margin: 15px auto;
       }
 
       .line {
-        width: 80%;
+        width: 40%;
         margin: 0 auto;
         border: 1px solid white;
         border-radius: 5px;
@@ -63,6 +64,10 @@
         cursor: pointer;
         transition: all 0.3s ease-in-out;
       }
+
+      .invisible {
+        opacity: 0;
+      }
     </style>
   </head>
   <body>
@@ -71,11 +76,21 @@
     <div class="line"></div>
 
     <div class="container">
+      <div class="card invisible"></div>
+      <div class="card invisible"></div>
+      <div class="card invisible"></div>
+      <div class="card invisible"></div>
+
       <div class="card"></div>
       <div class="card"></div>
       <div class="card"></div>
       <div class="card"></div>
       <div class="card"></div>
+
+      <div class="card invisible"></div>
+      <div class="card invisible"></div>
+      <div class="card invisible"></div>
+      <div class="card invisible"></div>
     </div>
 
     <div class="line"></div>
@@ -138,10 +153,10 @@
         if (!isRunning) {
           isRunning = true;
 
-          audio.play();
+          // audio.play();
           audio.loop = true;
 
-          interval = setInterval(animate, 150);
+          interval = setInterval(animate, 80);
 
           startBtn.style.backgroundColor = "#ff4d4d";
           stopBtn.style.backgroundColor = "white";
