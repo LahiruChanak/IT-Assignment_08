@@ -106,12 +106,14 @@
       const cards = $(".card");
       const startBtn = $("#startBtn");
       const stopBtn = $("#stopBtn");
+
       let isRunning = false;
       let currentIndex = 0;
       let direction = 1;
       let interval;
-      const scannerAudio = new Audio("/assets/audio/kitt_scanner_sound.mp3");
+
       const themeAudio = new Audio("/assets/audio/Knight-Rider-Theme-Song.mp3");
+      const scannerAudio = new Audio("/assets/audio/kitt_scanner_sound.mp3");
 
       themeAudio.loop = true;
       themeAudio.play();
